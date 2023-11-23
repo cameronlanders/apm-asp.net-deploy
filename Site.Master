@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="apm.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title>American Patriots Movement</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="Stylesheets" runat="server">
+        <link rel="stylesheet" href="/Content/apm.css" type="text/css" />
+        <link rel="stylesheet" href="/Content/archia.css" type="text/css" charset="utf-8" />
+    </asp:ContentPlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <!-- =-=-=-=-=-=-=-=-=-=-=-= -->
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <!-- =-=-=-=-=-=-=-=-=-=-=-= -->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="American Patriots Movement is about truth, liberty, freedom, fighting tyranny, defending our constitution and protecting our God-given freedoms." />
+    <meta name="keywords" content="america, patriots, trump, conservative, movement, liberty, freedom, election, 2020, tyranny, resistance, constitution, republic, rights, arms, congress" />
+    <meta name="resource-type" content="document" />
+    <meta name="robots" content="index, follow" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="language" content="english" />
+    <script type="text/javascript" src="./Scripts/jquery.min.js"></script>
+    <!-- ======================= -->
+    <!--   Google Analytics      -->
+    <!-- ======================= -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-45072912-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <script type="text/javascript">
+        function resetView() {
+            document.getElementById("intro").style.display="block"; 
+            document.getElementById("article1").style.display="none"; 
+            document.getElementById("article2").style.display="none"; 
+            document.getElementById("article3").style.display="none"; 
+            document.getElementById("about").style.display="none"; 
+            document.getElementById("mailinglist").style.display="none"; 
+            document.getElementById("contact").style.display="none"; 
+        }
+        function showcontent(section) {
+            resetView();
+            document.getElementById(section).style.display="block"; 
+        }
+        function goHome() {
+            window.location.href = "./";
+        }
+
+    </script>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-= -->
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <div id="copyright">&copy; <%: DateTime.Now.Year %> American Patriots Movement - All Rights Reserved</div>
+            </footer>
+        </div>
+    </form>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+    <script type="text/javascript">
+        document.getElementById('year').innerHTML = new Date().getFullYear();
+    </script>
+</body>
+</html>
